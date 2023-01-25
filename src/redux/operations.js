@@ -2,8 +2,6 @@ import axios from "axios";
 // import {fetchingInProgress, fetchingSuccess, fetchingError} from './contactSlice'
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = 'https://63c85655075b3f3a91df2447.mockapi.io/contacts';
-
  export const fetchContacts = createAsyncThunk(
     'contacts/fetchAll', 
   // Використовуємо символ підкреслення як ім'я першого параметра,
@@ -12,9 +10,10 @@ axios.defaults.baseURL = 'https://63c85655075b3f3a91df2447.mockapi.io/contacts';
     try {
         console.log('fetchAll');
         const response = await axios.get('/contacts');
-        console.log(JSON.stringify(response.data));
+        console.log('res' + JSON.stringify(response));
         return response.data;
     } catch (e) {
+        console.log(JSON.stringify(e))
          // При помилці запиту повертаємо проміс
       // який буде відхилений з текстом помилки
       return thunkAPI.rejectWithValue(e.message);
