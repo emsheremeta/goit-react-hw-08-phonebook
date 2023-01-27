@@ -13,9 +13,16 @@ export const PageHeader = () => {
     <header>
       <AppBar position="static">
         <Container maxWidth="m">
-          <Navigation />
-          <br />
-          {!isLoggedIn ? <AuthNav /> : <UserMenu />}
+          <Box
+            sx={{
+              display: 'inline-flex',
+              textAlign: 'center',
+              marginLeft: '15px',
+            }}
+          >
+            <Navigation />
+            {!isLoggedIn ? <AuthNav /> : <UserMenu />}
+          </Box>
         </Container>
       </AppBar>
     </header>

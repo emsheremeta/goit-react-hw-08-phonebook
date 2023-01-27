@@ -16,7 +16,13 @@ function Contact({ contact }) {
   return (
     <li className={styles.contactList} id={id}>
       {name}: {number}
-      <Button variant="contained" onClick={() => onDelete(id)}>
+      <Button
+        sx={{
+          marginLeft: '15px',
+        }}
+        variant="contained"
+        onClick={() => onDelete(id)}
+      >
         Delete
       </Button>
     </li>

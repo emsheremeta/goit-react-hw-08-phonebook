@@ -3,20 +3,27 @@ import { logIn } from 'redux/auth/operations';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
-import { flexbox } from '@mui/system';
 import Container from '@mui/material/Container';
+import { toast } from 'react-hot-toast';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
     dispatch(
       logIn({
-        password: form.elements.password.value,
-        email: form.elements.email.value,
+        password: password,
+        email: email,
       })
     );
+    if (email === '') {
+      toast.error('Please, log in to proceed!');
+    } else {
+      toast.success('Log in successfully');
+    }
   };
   return (
     <Container component="div" maxWidth="xs">

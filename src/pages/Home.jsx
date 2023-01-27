@@ -9,6 +9,7 @@ export default function Home() {
         sx={{
           alignItems: 'center',
           marginTop: 8,
+          marginLeft: 5,
         }}
       >
         <Typography component="h1" variant="h4">

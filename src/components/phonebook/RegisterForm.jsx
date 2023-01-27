@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import Button from '@mui/material/Button';
-import Input from '@mui/material/Input';
 import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import { toast } from 'react-hot-toast';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -13,15 +13,24 @@ export const RegisterForm = () => {
     e.preventDefault();
     console.log(e);
     const form = e.target;
+    const name = form.elements.name.value;
+    const password = form.elements.password.value;
+    const email = form.elements.email.value;
     dispatch(
       register({
-        name: form.elements.name.value,
-        password: form.elements.password.value,
-        email: form.elements.email.value,
+        name: name,
+        password: password,
+        email: email,
       })
     );
+    if (email.trim() === '') {
+      toast.error('Empty registration form. Please register!');
+    } else {
+      toast.success('Registed succesfully!');
+    }
     form.reset();
   };
+
   return (
     <Container component="div" maxWidth="xs">
       <Box
