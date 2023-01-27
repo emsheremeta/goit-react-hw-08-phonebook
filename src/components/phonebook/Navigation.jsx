@@ -5,7 +5,12 @@ export const Navigation = () => {
   const { isLoggedIn } = useAuth();
   return (
     <Box marginTop="10px">
-      <Link href="/" color="black" underline="hover" fontSize="30px">
+      <Link
+        href="/goit-react-hw-08-phonebook/"
+        color="black"
+        underline="hover"
+        fontSize="30px"
+      >
         Home
       </Link>
       {isLoggedIn && (
@@ -14,7 +19,7 @@ export const Navigation = () => {
           marginLeft="10px"
           underline="hover"
           fontSize="30px"
-          href="/contacts"
+          href="/goit-react-hw-08-phonebook/contacts"
         >
           Phonebook
         </Link>

@@ -13,7 +13,7 @@ export const AuthNav = () => {
         }}
       >
         <Link
-          href="/register"
+          href="/goit-react-hw-08-phonebook/register"
           color="black"
           sx={{ minWidth: 300 }}
           underline="hover"
@@ -23,7 +23,12 @@ export const AuthNav = () => {
         </Link>
 
         <br />
-        <Link href="/login" color="black" underline="hover" fontSize="30px">
+        <Link
+          href="/goit-react-hw-08-phonebook/login"
+          color="black"
+          underline="hover"
+          fontSize="30px"
+        >
           Log In
         </Link>
       </Box>

@@ -31,24 +31,33 @@ function PhoneApp() {
     <b>Refreshing user...</b>
   ) : (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/goit-react-hw-08-phonebook/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route
-          path="/register"
+          path="/goit-react-hw-08-phonebook/register"
           element={
-            <RestrictedRoute redirectTo="/contacts" component={<Register />} />
+            <RestrictedRoute
+              redirectTo="/goit-react-hw-08-phonebook/contacts"
+              component={<Register />}
+            />
           }
         />
         <Route
-          path="/login"
+          path="/goit-react-hw-08-phonebook/login"
           element={
-            <RestrictedRoute redirectTo="/contacts" component={<Login />} />
+            <RestrictedRoute
+              redirectTo="/goit-react-hw-08-phonebook/contacts"
+              component={<Login />}
+            />
           }
         />
         <Route
-          path="/contacts"
+          path="/goit-react-hw-08-phonebook/contacts"
           element={
-            <PrivateRoute redirectTo="/login" component={<Contacts />} />
+            <PrivateRoute
+              redirectTo="/goit-react-hw-08-phonebook/login"
+              component={<Contacts />}
+            />
           }
         />
       </Route>
