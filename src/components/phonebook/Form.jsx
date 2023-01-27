@@ -2,6 +2,10 @@ import styles from './Phonebook.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
+import Button from '@mui/material/Button';
+import Input from '@mui/material/Input';
+import Box from '@mui/material/Box';
+import { toast } from 'react-hot-toast';
 
 function Form() {
   const dispatch = useDispatch();
@@ -10,11 +14,13 @@ function Form() {
   const onSubmit = event => {
     event.preventDefault();
     const form = event.currentTarget;
-    const name = form.name.value;
-    const number = form.number.value;
-    console.log(form.name.value);
+    console.log(form);
 
-    if (name.trim() === '') {
+    const name = form.name?.value;
+    const number = form.number?.value;
+    console.log(form.name?.value);
+
+    if (name?.trim() === '' || !name) {
       alert('Please, add the name! ');
       return;
     }
@@ -29,8 +35,9 @@ function Form() {
           number: number,
         })
       );
+      toast.success('New contact added successfully');
     } else {
-      alert('This contact already exist');
+      toast.error('This contact already exist');
     }
     form.reset();
   };
@@ -38,21 +45,25 @@ function Form() {
   return (
     <div>
       <h1 className={styles.text}>Phonebook</h1>
-      <form className={styles.form} onSubmit={onSubmit}>
+      <Box component="form" className={styles.form} onSubmit={onSubmit}>
         <label className={styles.label}>Name</label>
-        <input
+        <Input
+          fullWidth
+          margin="normal"
           className={styles.input}
           size={35}
           placeholder="Put your name here"
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          title="Name may contain only letters, apostrophe, dash and spaces. For
+        example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-
         <label className={styles.label}>Number</label>
-        <input
+        <Input
+          margin="normal"
+          fullWidth
           className={styles.input}
           size={35}
           placeholder="Put your number here"
@@ -62,9 +73,10 @@ function Form() {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-
-        <button className={styles.button}>Add Contact</button>
-      </form>
+        <Button margin="normal" fullWidth variant="contained" type="submit  ">
+          Add Contact
+        </Button>
+      </Box>
     </div>
   );
 }

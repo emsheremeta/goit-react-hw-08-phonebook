@@ -1,5 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
+import Button from '@mui/material/Button';
+import Input from '@mui/material/Input';
+import TextField from '@mui/material/TextField';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -18,20 +23,60 @@ export const RegisterForm = () => {
     form.reset();
   };
   return (
-    <form autoComplete="off" onSubmit={handleSubmit}>
-      <label>
-        Username
-        <input type="text" name="name" />
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Register</button>
-    </form>
+    <Container component="div" maxWidth="xs">
+      <Box
+        sx={{
+          marginTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Box
+          component="form"
+          noValidate
+          sx={{ mt: 1 }}
+          autoComplete="off"
+          onSubmit={handleSubmit}
+        >
+          <TextField
+            margin="normal"
+            fullWidth
+            id="filled-helperText"
+            label="Username"
+            type="text"
+            name="name"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            fullWidth
+            required
+            id="filled-required"
+            label="Email"
+            type="email"
+            name="email"
+          />
+          <TextField
+            margin="normal"
+            fullWidth
+            required
+            id="filled-password-input"
+            label="Password"
+            type="password"
+            name="password"
+          />
+
+          <Button
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+            type="submit"
+          >
+            Register
+          </Button>
+        </Box>
+      </Box>
+    </Container>
   );
 };

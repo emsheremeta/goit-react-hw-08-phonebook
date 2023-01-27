@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Phonebook.module.css';
 import { deleteContact } from 'redux/operations';
 import { useDispatch } from 'react-redux';
+import Button from '@mui/material/Button';
 
 function Contact({ contact }) {
   const dispatch = useDispatch();
@@ -15,9 +16,9 @@ function Contact({ contact }) {
   return (
     <li className={styles.contactList} id={id}>
       {name}: {number}
-      <button className={styles.buttonContact} onClick={() => onDelete(id)}>
+      <Button variant="contained" onClick={() => onDelete(id)}>
         Delete
-      </button>
+      </Button>
     </li>
   );
 }

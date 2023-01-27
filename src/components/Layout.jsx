@@ -1,13 +1,14 @@
 import { Toaster } from 'react-hot-toast';
 import { Outlet } from 'react-router-dom';
-import { AppBar } from './phonebook/AppBar';
+import { PageHeader } from './phonebook/AppBar';
+import Container from '@mui/material/Container';
 
 export const Layout = () => {
   return (
-    <div>
-      <AppBar />
+    <Container maxWidth="sm">
+      <PageHeader />
       <Outlet />
-      <Toaster />
-    </div>
+      <Toaster position="bottom-right" reverseOrder={false} />
+    </Container>
   );
 };

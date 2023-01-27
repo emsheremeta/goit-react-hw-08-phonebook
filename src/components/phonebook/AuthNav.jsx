@@ -1,11 +1,17 @@
+import { Link } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 export const AuthNav = () => {
   return (
     <div>
-      <NavLink to="/register">Register</NavLink>
+      <Link href="/register" color="black" underline="hover">
+        Register
+      </Link>
+
       <br />
-      <NavLink to="/login">Log In</NavLink>
+      <Link href="/login" color="black" underline="hover">
+        Log In
+      </Link>
     </div>
   );
 };
