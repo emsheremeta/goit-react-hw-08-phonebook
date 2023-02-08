@@ -5,6 +5,10 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { toast } from 'react-hot-toast';
+import Typography from '@mui/material/Typography';
+
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Avatar from '@mui/material/Avatar';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -35,6 +39,12 @@ export const LoginForm = () => {
           alignItems: 'center',
         }}
       >
+        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Log in
+        </Typography>
         <Box
           component="form"
           noValidate

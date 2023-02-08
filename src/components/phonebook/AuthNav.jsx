@@ -1,37 +1,50 @@
-import { Link } from '@mui/material';
+import * as React from 'react';
+// import { Link } from '@mui/material';
 import Box from '@mui/material/Box';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 
 export const AuthNav = () => {
-  return (
-    <div>
-      <Box
-        sx={{
-          display: 'inline-flex',
-          textAlign: 'center',
-          marginLeft: '15px',
-          marginTop: '10px',
-        }}
-      >
-        <Link
-          href="/goit-react-hw-08-phonebook/register"
-          color="black"
-          sx={{ minWidth: 300 }}
-          underline="hover"
-          fontSize="30px"
-        >
-          Register
-        </Link>
+  console.log();
+  const [value, setValue] = React.useState('REGISTER');
+  const handleChange = e => {
+    setValue(e.target.innerText);
+  };
 
-        <br />
-        <Link
-          href="/goit-react-hw-08-phonebook/login"
-          color="black"
-          underline="hover"
-          fontSize="30px"
+  React.useEffect(() => {
+    window.location.href.endsWith('register')
+      ? setValue('REGISTER')
+      : setValue('LOG IN');
+  }, []);
+  return (
+    <Box sx={{ width: '100%' }}>
+      <Box sx={{ borderBottom: 2, borderColor: 'divider' }}>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          textColor="secondary"
+          indicatorColor="secondary"
+          aria-label="secondary tabs "
         >
-          Log In
-        </Link>
+          <Tab
+            value="REGISTER"
+            label="REGISTER"
+            href="/goit-react-hw-08-phonebook/register"
+            color="black"
+            sx={{ minWidth: 250 }}
+            fontSize="30px"
+            onClick={handleChange}
+          />
+          <Tab
+            value="LOG IN"
+            label="LOG IN"
+            href="/goit-react-hw-08-phonebook/login"
+            color="black"
+            sx={{ minWidth: 250 }}
+            fontSize="30px"
+          />
+        </Tabs>
       </Box>
-    </div>
+    </Box>
   );
 };

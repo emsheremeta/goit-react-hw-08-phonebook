@@ -6,6 +6,10 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { toast } from 'react-hot-toast';
 
+import Typography from '@mui/material/Typography';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+import Avatar from '@mui/material/Avatar';
+
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
@@ -41,6 +45,12 @@ export const RegisterForm = () => {
           alignItems: 'center',
         }}
       >
+        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <AppRegistrationIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Register
+        </Typography>
         <Box
           component="form"
           noValidate

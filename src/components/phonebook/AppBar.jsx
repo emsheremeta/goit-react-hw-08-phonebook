@@ -11,20 +11,18 @@ export const PageHeader = () => {
 
   return (
     <header>
-      <AppBar position="static">
-        <Container maxWidth="m">
-          <Box
-            sx={{
-              display: 'inline-flex',
-              textAlign: 'center',
-              marginLeft: '15px',
-            }}
-          >
-            <Navigation />
-            {!isLoggedIn ? <AuthNav /> : <UserMenu />}
-          </Box>
-        </Container>
-      </AppBar>
+      <Container maxWidth="m">
+        <Box
+          sx={{
+            display: 'inline-flex',
+            textAlign: 'center',
+            marginLeft: '15px',
+          }}
+        >
+          <Navigation />
+          {!isLoggedIn ? <AuthNav /> : <UserMenu />}
+        </Box>
+      </Container>
     </header>
   );
 };

@@ -32,7 +32,7 @@ function PhoneApp() {
   ) : (
     <Routes>
       <Route path="/goit-react-hw-08-phonebook/" element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route index element={<Login />} />
         <Route
           path="/goit-react-hw-08-phonebook/register"
           element={
