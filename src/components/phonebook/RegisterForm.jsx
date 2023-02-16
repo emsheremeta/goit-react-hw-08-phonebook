@@ -29,6 +29,9 @@ export const RegisterForm = () => {
     );
     if (email.trim() === '') {
       toast.error('Empty registration form. Please register!');
+    }
+    if (password.length < '7') {
+      toast.error('Password must be at least 7 characters long.');
     } else {
       toast.success('Registed succesfully!');
     }
